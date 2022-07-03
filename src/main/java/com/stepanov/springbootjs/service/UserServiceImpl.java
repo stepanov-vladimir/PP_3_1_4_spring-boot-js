@@ -49,5 +49,12 @@ public class UserServiceImpl implements UserService {
             throw new UsernameNotFoundException(String.format("User with email '%s' not found", email));
         }
     }
+
+    @Override
+    public Optional<User> getUserById(Long id) {
+        Optional<User> optionalUser = userRepository.findById(id);
+
+        return optionalUser;
+    }
 }
 
