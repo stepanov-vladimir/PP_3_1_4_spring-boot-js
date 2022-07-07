@@ -3,6 +3,9 @@ package com.stepanov.springbootjs.controller;
 import com.stepanov.springbootjs.model.User;
 import com.stepanov.springbootjs.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +23,6 @@ public class UserController {
     public String currentUserName(Principal principal, Model model) {
         User loggedUser = userService.getUserByEmail(principal.getName());
         model.addAttribute("loggedUser", loggedUser);
-        return "admin/user-page";
+        return "js/user-page-js";
     }
 }
